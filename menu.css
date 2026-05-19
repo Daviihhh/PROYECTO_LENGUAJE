@@ -16,26 +16,6 @@
     }
 
 
-    /* Ramas fondo */
-    .rama {
-      position: fixed;
-      width: 420px;
-      opacity: 0.75;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .rama_inicio {
-      top: -30px;
-      left: -60px;
-    }
-
-    .rama_final {
-      bottom: -30px;
-      right: -60px;
-      transform: rotate(180deg); /* Rota la imagen para que quede simétrica con la de arriba */
-    }
-
     /* ══════════════════════════════
        CABECERA
     ══════════════════════════════ */

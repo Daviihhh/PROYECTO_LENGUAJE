@@ -14,3 +14,45 @@
         repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px), /* Las lineas del fondo, se puede cambiar la opacidad si hace falta */
         repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px);
     }
+
+    
+    /* Ramas fondo */
+    .rama {
+      position: fixed;
+      width: 420px;
+      opacity: 0.75;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .rama_inicio {
+      top: -30px;
+      left: -60px;
+      transform: rotate(-140deg);
+    }
+
+    .rama_final {
+      bottom: -30px;
+      right: -60px;
+      transform: rotate(40deg); /* Rota la imagen para que quede simétrica con la de arriba */
+    }
+
+
+    /* Fondo animacion */
+    /* ── PÉTALOS DE CEREZO ── */
+    .petalo {
+      position: fixed;
+      top: -20px;
+      font-size: 12px;
+      color: rgba(255, 182, 193, 0.8);  /* rosa */
+      pointer-events: none;
+      z-index: 998;   /* justo debajo de la rama */
+      animation: caer linear infinite;
+    }
+
+    @keyframes caer {
+      0%   { transform: translateY(0) rotate(0deg);    opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }

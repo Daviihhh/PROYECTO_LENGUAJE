@@ -16,20 +16,6 @@
     }
 
 
-    /* ── BODY ── */
-    body {
-      font-family: 'Rajdhani', sans-serif;
-      background-color: var(--negro);
-      min-height: 100vh;
-      padding: 60px 20px;
-      width: 100%;
-      background-image:
-        radial-gradient(ellipse at 15% 50%, rgba(192, 57, 43, 0.15) 0%, transparent 55%),
-        radial-gradient(ellipse at 85% 20%, rgba(184, 150, 62, 0.06) 0%, transparent 50%),
-        repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px),
-        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px);
-    }
-
     /* ══════════════════════════════
        CABECERA
     ══════════════════════════════ */
