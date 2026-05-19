@@ -144,14 +144,6 @@
       border-color: rgba(184, 150, 62, 0.4);
     }
 
-    /* Para imagen real: <img src="paisaje.jpg"> dentro de .foto-grande */
-    .foto-grande img,
-    .foto-media img,
-    .foto-pequeña img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
 
     /* Etiqueta superpuesta sobre la foto grande */
     .foto-etiqueta {
@@ -190,17 +182,26 @@
     }
 
     .foto-media {
-      height: 260px;
-      background-color: #0f0c08;
-      border: 1px solid rgba(184, 150, 62, 0.15);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      overflow: hidden;
-      position: relative;
-      transition: border-color 0.3s;
+    height: 260px;
+    background-color: #0f0c08;
+    border: 1px solid rgba(184, 150, 62, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+    position: relative; 
+    transition: border-color 0.3s;
+    }
+
+    .foto-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .foto-media:hover {
@@ -226,6 +227,15 @@
       overflow: hidden;
       position: relative;
       transition: border-color 0.3s;
+    }
+
+    .foto-pequeña img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .foto-pequeña:hover {
@@ -286,7 +296,7 @@
 
     <!-- FOTO GRANDE DESTACADA -->
     <div class="foto-grande">
-      <img src="/resources/PreviewCover_Ambientacion.jpg">
+      <img src="resources/ambientacion/PreviewCover_Ambientacion.jpg">
       <span class="placeholder-kanji">景</span>
       <span class="placeholder-texto">Estética de Forza Horizon 6</span>
       <div class="foto-etiqueta">
@@ -299,19 +309,21 @@
     <div class="fila-doble">
 
       <div class="foto-media">
+        <img src="resources/ambientacion/Paisaje1.jpg">
         <span class="placeholder-kanji">山</span>
-        <span class="placeholder-texto">Paisaje</span>
+        <span class="placeholder-texto">Fuera de la gran ciudad</span>
         <div class="foto-etiqueta">
-          <span class="foto-titulo">Escenario</span>
+          <span class="foto-titulo">Naturaleza</span>
           <span class="foto-titulo-jp">002</span>
         </div>
       </div>
 
       <div class="foto-media">
+        <img src="resources/ambientacion/CarreteraDrift.jpg">
         <span class="placeholder-kanji">海</span>
-        <span class="placeholder-texto">Paisaje</span>
+        <span class="placeholder-texto">Calles de la ciudad</span>
         <div class="foto-etiqueta">
-          <span class="foto-titulo">Escenario</span>
+          <span class="foto-titulo">Senderismo</span>
           <span class="foto-titulo-jp">003</span>
         </div>
       </div>
@@ -322,6 +334,7 @@
     <div class="fila-triple">
 
       <div class="foto-pequeña">
+        <img src="resources/ambientacion/season2.jpg">
         <span class="placeholder-kanji">森</span>
         <span class="placeholder-texto">Paisaje</span>
         <div class="foto-etiqueta">
@@ -330,6 +343,7 @@
       </div>
 
       <div class="foto-pequeña">
+        <img src="resources/ambientacion/season3.jpg">
         <span class="placeholder-kanji">街</span>
         <span class="placeholder-texto">Paisaje</span>
         <div class="foto-etiqueta">
@@ -338,6 +352,7 @@
       </div>
 
       <div class="foto-pequeña">
+        <img src="resources/ambientacion/season4.jpg">
         <span class="placeholder-kanji">空</span>
         <span class="placeholder-texto">Paisaje</span>
         <div class="foto-etiqueta">
@@ -350,7 +365,7 @@
   </div>
 
   <!-- ── PIE ── -->
-  <footer>FORZA HORIZON VI · フォルツァ · 2025</footer>
+  <footer>FORZA HORIZON VI · フォルツァ · 2026</footer>
 
 </body>
 </html>
