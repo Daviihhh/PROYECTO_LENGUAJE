@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambientación · Forza Horizon 6</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ── RESET BÁSICO ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ── VARIABLES DE COLOR ── */
+    :root {
+      --negro:  #1a1209;
+      --papel:  #f5f0e8;
+      --rojo:   #c0392b;
+      --dorado: #b8963e;
+      --gris:   #6b6560;
+    }
+
+    /* ── BODY ── */
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background-color: var(--negro);
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    /* ══════════════════════════════
+       CABECERA
+    ══════════════════════════════ */
+
+    header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .volver {
+      display: inline-block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--gris);
+      text-decoration: none;
+      margin-bottom: 30px;
+      transition: color 0.3s;
+    }
+
+    .volver:hover {
+      color: var(--dorado);
+    }
+
+    .subtitulo-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 6px;
+      color: var(--dorado);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--papel);
+      margin-bottom: 10px;
+    }
+
+    .divisor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .divisor-linea {
+      width: 80px;
+      height: 1px;
+      background-color: var(--gris);
+    }
+
+    .divisor-rombo {
+      width: 6px;
+      height: 6px;
+      background-color: var(--rojo);
+      transform: rotate(45deg);
+    }
+
+    .tagline {
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: var(--gris);
+    }
+
+    /* ══════════════════════════════
+       GALERÍA DE PAISAJES
+
+       Estructura:
+       - Una foto grande arriba (ancho completo)
+       - Debajo: grid de fotos medianas
+       - Cada foto tiene un título encima
+    ══════════════════════════════ */
+
+    .galeria {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* ── Foto destacada (ocupa todo el ancho) ── */
+    .foto-grande {
+      width: 100%;
+      height: 420px;
+      background-color: #0f0c08;
+      border: 1px solid rgba(184, 150, 62, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      overflow: hidden;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .foto-grande img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .foto-grande:hover {
+      border-color: rgba(184, 150, 62, 0.4);
+    }
+
+    /* Para imagen real: <img src="paisaje.jpg"> dentro de .foto-grande */
+    .foto-grande img,
+    .foto-media img,
+    .foto-pequeña img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Etiqueta superpuesta sobre la foto grande */
+    .foto-etiqueta {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 24px;
+      /* Gradiente oscuro para que se lea el texto sobre la foto */
+      background: linear-gradient(to top, rgba(26, 18, 9, 0.9), transparent);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .foto-titulo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--papel);
+      text-transform: uppercase;
+    }
+
+    .foto-titulo-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--dorado);
+    }
+
+    /* ── Grid de fotos medianas (2 columnas) ── */
+    .fila-doble {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .foto-media {
+      height: 260px;
+      background-color: #0f0c08;
+      border: 1px solid rgba(184, 150, 62, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      overflow: hidden;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .foto-media:hover {
+      border-color: rgba(184, 150, 62, 0.4);
+    }
+
+    /* ── Grid de fotos pequeñas (3 columnas) ── */
+    .fila-triple {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4px;
+    }
+
+    .foto-pequeña {
+      height: 180px;
+      background-color: #0f0c08;
+      border: 1px solid rgba(184, 150, 62, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      overflow: hidden;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .foto-pequeña:hover {
+      border-color: rgba(184, 150, 62, 0.4);
+    }
+
+    /* ── Placeholders (se eliminan cuando pongas imagen real) ── */
+    .placeholder-kanji {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 40px;
+      color: rgba(184, 150, 62, 0.2);
+    }
+
+    .foto-media .placeholder-kanji,
+    .foto-pequeña .placeholder-kanji {
+      font-size: 28px;
+    }
+
+    .placeholder-texto {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(245, 240, 232, 0.15);
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════
+       PIE DE PÁGINA
+    ══════════════════════════════ */
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: rgba(107, 101, 96, 0.5);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── CABECERA ── -->
+  <header>
+    <a class="volver" href="menu.html">← 戻る · Volver al menú</a>
+    <p class="subtitulo-jp">空間と雰囲気</p>
+    <h1>AMBIENTACIÓN</h1>
+    <div class="divisor">
+      <div class="divisor-linea"></div>
+      <div class="divisor-rombo"></div>
+      <div class="divisor-linea"></div>
+    </div>
+    <p class="tagline">Los escenarios del mundo · 世界の風景</p>
+  </header>
+
+  <!-- ── GALERÍA ── -->
+  <div class="galeria">
+
+    <!-- FOTO GRANDE DESTACADA -->
+    <div class="foto-grande">
+      <img src="/resources/PreviewCover_Ambientacion.jpg">
+      <span class="placeholder-kanji">景</span>
+      <span class="placeholder-texto">Estética de Forza Horizon 6</span>
+      <div class="foto-etiqueta">
+        <span class="foto-titulo">Vida inspirada en japón.</span>
+        <span class="foto-titulo-jp">風景 · 001</span>
+      </div>
+    </div>
+
+    <!-- FILA DE DOS FOTOS MEDIANAS -->
+    <div class="fila-doble">
+
+      <div class="foto-media">
+        <span class="placeholder-kanji">山</span>
+        <span class="placeholder-texto">Paisaje</span>
+        <div class="foto-etiqueta">
+          <span class="foto-titulo">Escenario</span>
+          <span class="foto-titulo-jp">002</span>
+        </div>
+      </div>
+
+      <div class="foto-media">
+        <span class="placeholder-kanji">海</span>
+        <span class="placeholder-texto">Paisaje</span>
+        <div class="foto-etiqueta">
+          <span class="foto-titulo">Escenario</span>
+          <span class="foto-titulo-jp">003</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FILA DE TRES FOTOS PEQUEÑAS -->
+    <div class="fila-triple">
+
+      <div class="foto-pequeña">
+        <span class="placeholder-kanji">森</span>
+        <span class="placeholder-texto">Paisaje</span>
+        <div class="foto-etiqueta">
+          <span class="foto-titulo-jp">004</span>
+        </div>
+      </div>
+
+      <div class="foto-pequeña">
+        <span class="placeholder-kanji">街</span>
+        <span class="placeholder-texto">Paisaje</span>
+        <div class="foto-etiqueta">
+          <span class="foto-titulo-jp">005</span>
+        </div>
+      </div>
+
+      <div class="foto-pequeña">
+        <span class="placeholder-kanji">空</span>
+        <span class="placeholder-texto">Paisaje</span>
+        <div class="foto-etiqueta">
+          <span class="foto-titulo-jp">006</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ── PIE ── -->
+  <footer>FORZA HORIZON VI · フォルツァ · 2025</footer>
+
+</body>
+</html>
