@@ -1,0 +1,16 @@
+
+    /* ── BODY: fondo oscuro, centrado ── */
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background-color: var(--negro);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      background-image:
+        radial-gradient(ellipse at 15% 50%, rgba(192, 57, 43, 0.15) 0%, transparent 55%), /* Los gradiantes del fondo */
+        radial-gradient(ellipse at 85% 20%, rgba(184, 150, 62, 0.06) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px), /* Las lineas del fondo, se puede cambiar la opacidad si hace falta */
+        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px);
+    }

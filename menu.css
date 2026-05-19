@@ -1,4 +1,4 @@
-<style>
+
     /* ── RESET BÁSICO ── */
     * {
       margin: 0;
@@ -15,15 +15,25 @@
       --gris:   #6b6560;
     }
 
-    /* ── BODY: fondo oscuro, centrado ── */
-    body {
-      font-family: 'Rajdhani', sans-serif;
-      background-color: var(--negro);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 60px 20px;
+
+    /* Ramas fondo */
+    .rama {
+      position: fixed;
+      width: 420px;
+      opacity: 0.75;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .rama_inicio {
+      top: -30px;
+      left: -60px;
+    }
+
+    .rama_final {
+      bottom: -30px;
+      right: -60px;
+      transform: rotate(180deg); /* Rota la imagen para que quede simétrica con la de arriba */
     }
 
     /* ══════════════════════════════
@@ -113,10 +123,17 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      /* Para poder poner un <img> dentro con object-fit */
       overflow: hidden;
       cursor: pointer;
       transition: border-color 0.3s;
+      position: relative;   /* necesario para las capas */
+    }
+
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .foto:hover {
@@ -127,7 +144,7 @@
     .foto-kanji {
       font-family: 'Noto Serif JP', serif;
       font-size: 30px;
-      color: rgba(184, 150, 62, 0.3);
+      color: var(--dorado);
     }
 
     /* Texto "Añade tu imagen" */
@@ -237,5 +254,3 @@
       letter-spacing: 6px;
       color: rgba(107, 101, 96, 0.5);
     }
-
-  </style>

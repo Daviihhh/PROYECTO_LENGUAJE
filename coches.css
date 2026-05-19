@@ -1,4 +1,3 @@
-<style>
 
     /* ── RESET BÁSICO ── */
     * {
@@ -14,14 +13,6 @@
       --rojo:   #c0392b;
       --dorado: #b8963e;
       --gris:   #6b6560;
-    }
-
-    /* ── BODY ── */
-    body {
-      font-family: 'Rajdhani', sans-serif;
-      background-color: var(--negro);
-      min-height: 100vh;
-      padding: 60px 20px;
     }
 
     /* ══════════════════════════════
@@ -227,5 +218,3 @@
       letter-spacing: 6px;
       color: rgba(107, 101, 96, 0.5);
     }
-
-  </style>

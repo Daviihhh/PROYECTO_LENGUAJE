@@ -6,6 +6,7 @@
   <title>Ambientación · Forza Horizon 6</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   
+
   <!-- *** ESTILOS: ambientacion.css *** -->
   <link rel="stylesheet" href="ambientacion.css">
 
@@ -100,6 +101,34 @@
 
   <!-- ── PIE ── -->
   <footer>FORZA HORIZON VI · フォルツァ · 2026</footer>
+
+
+
+  <!-- SCRIPT: lightbox.js (para ampliar las fotos al hacer clic) ──  -->
+
+  <!-- LIGHTBOX: capa oscura con la imagen ampliada -->
+  <div id="lightbox" onclick="cerrarLightbox()">
+    <img id="lightbox-img">
+  </div>
+
+
+        <script>
+          // Añade el clic a todas las fotos de la galería
+          document.querySelectorAll('.foto-grande, .foto-media, .foto-pequeña').forEach(function(div) {  /* Esta linea busca todos los elementos con estas clases */
+            div.style.cursor = 'pointer';
+            div.addEventListener('click', function() { 
+              var img = this.querySelector('img');
+              if (img) {
+                document.getElementById('lightbox-img').src = img.src; /* Esta linea toma la imagen dentro del div que se ha clicado y la pone en el lightbox */
+                document.getElementById('lightbox').classList.add('activo'); /* Esta linea muestra el lightbox añadiendo la clase 'activo' que hace que el lightbox sea visible */
+              }
+            });
+          });
+
+          function cerrarLightbox() {
+            document.getElementById('lightbox').classList.remove('activo'); /* Esta linea oculta el lightbox quitando la clase 'activo' */
+          }
+        </script>
 
 </body>
 </html>

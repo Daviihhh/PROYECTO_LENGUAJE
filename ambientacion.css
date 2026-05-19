@@ -15,12 +15,19 @@
       --gris:   #6b6560;
     }
 
+
     /* ── BODY ── */
     body {
       font-family: 'Rajdhani', sans-serif;
       background-color: var(--negro);
       min-height: 100vh;
       padding: 60px 20px;
+      width: 100%;
+      background-image:
+        radial-gradient(ellipse at 15% 50%, rgba(192, 57, 43, 0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 20%, rgba(184, 150, 62, 0.06) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px),
+        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px);
     }
 
     /* ══════════════════════════════
@@ -92,15 +99,11 @@
 
     /* ══════════════════════════════
        GALERÍA DE PAISAJES
-
-       Estructura:
-       - Una foto grande arriba (ancho completo)
-       - Debajo: grid de fotos medianas
-       - Cada foto tiene un título encima
     ══════════════════════════════ */
 
     .galeria {
-      max-width: 900px;
+      width: 80%;
+      padding: 0 40px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -264,3 +267,27 @@
       letter-spacing: 6px;
       color: rgba(107, 101, 96, 0.5);
     }
+
+/* ── LIGHTBOX ── */
+#lightbox {
+  display: none;            /* oculto por defecto */
+  position: fixed;          /* cubre toda la pantalla */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;          /* indica que se puede cerrar */
+}
+
+/* Cuando tiene la clase "activo", se muestra */
+#lightbox.activo {
+  display: flex;
+}
+
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;      /* muestra la imagen entera sin recortar */
+  border: 1px solid rgba(184, 150, 62, 0.3);
+}
