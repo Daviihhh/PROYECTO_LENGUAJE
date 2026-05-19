@@ -1,0 +1,223 @@
+  <style>
+
+    /* ── RESET BÁSICO ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ── VARIABLES DE COLOR ── */
+    :root {
+      --negro:  #1a1209;
+      --papel:  #f5f0e8;
+      --rojo:   #c0392b;
+      --dorado: #b8963e;
+      --gris:   #6b6560;
+    }
+
+    /* ── BODY ── */
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background-color: var(--negro);
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    /* ══════════════════════════════
+       CABECERA
+    ══════════════════════════════ */
+
+    header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .volver {
+      display: inline-block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--gris);
+      text-decoration: none;
+      margin-bottom: 30px;
+      transition: color 0.3s;
+    }
+
+    .volver:hover {
+      color: var(--dorado);
+    }
+
+    .subtitulo-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 6px;
+      color: var(--dorado);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--papel);
+      margin-bottom: 10px;
+    }
+
+    .divisor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .divisor-linea {
+      width: 80px;
+      height: 1px;
+      background-color: var(--gris);
+    }
+
+    .divisor-rombo {
+      width: 6px;
+      height: 6px;
+      background-color: var(--rojo);
+      transform: rotate(45deg);
+    }
+
+    .tagline {
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: var(--gris);
+    }
+
+    /* ══════════════════════════════
+       GRID DE MOTOS
+       Las motos son más pequeñas, van
+       en tarjetas verticales tipo galería
+    ══════════════════════════════ */
+
+    .seccion-motos {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      /* 3 columnas iguales en pantalla grande */
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+
+    /* Tarjeta individual de moto */
+    .moto {
+      background-color: #0f0c08;
+      border: 1px solid rgba(184, 150, 62, 0.15);
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .moto:hover {
+      border-color: rgba(184, 150, 62, 0.45);
+      transform: translateY(-4px);
+    }
+
+    /* ── Foto de la moto ── */
+    .moto-imagen {
+      width: 100%;
+      height: 200px;
+      background-color: #0d0b07;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      /* Línea separadora sutil entre imagen e info */
+      border-bottom: 1px solid rgba(184, 150, 62, 0.1);
+    }
+
+    /* Para imagen real: <img src="moto.jpg"> dentro de .moto-imagen */
+    .moto-imagen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .placeholder-kanji {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 36px;
+      color: rgba(184, 150, 62, 0.2);
+    }
+
+    .placeholder-texto {
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: rgba(245, 240, 232, 0.15);
+      text-transform: uppercase;
+    }
+
+    /* ── Info de la moto ── */
+    .moto-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Número decorativo */
+    .moto-numero {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--rojo);
+      opacity: 0.7;
+    }
+
+    /* Nombre de la moto */
+    .moto-nombre {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--papel);
+      text-transform: uppercase;
+    }
+
+    /* Línea dorada bajo el nombre */
+    .moto-linea {
+      width: 30px;
+      height: 1px;
+      background-color: var(--dorado);
+      opacity: 0.5;
+    }
+
+    /* Descripción corta */
+    .moto-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--gris);
+    }
+
+    /* Etiqueta de tipo */
+    .moto-tag {
+      display: inline-block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--dorado);
+      border: 1px solid rgba(184, 150, 62, 0.3);
+      padding: 3px 10px;
+      width: fit-content;
+      margin-top: 4px;
+    }
+
+    /* ══════════════════════════════
+       PIE DE PÁGINA
+    ══════════════════════════════ */
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: rgba(107, 101, 96, 0.5);
+    }
+
+  </style>
