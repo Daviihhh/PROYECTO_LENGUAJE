@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forza Horizon 6</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Shippori+Mincho:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <! Lo de arriba es el enlace a la fuente de Google Fonts para los estilos tipográficos 
+    utilizados en la página.>
+  <style>
+    :root {
+      --ink: #1a1209;
+      --paper: #f5f0e8;
+      --red: #c0392b;
+      --gold: #b8963e;
+      --ash: #6b6560;
+      --mist: rgba(245, 240, 232, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Fondo con textura de papel japonés */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(192, 57, 43, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(184, 150, 62, 0.06) 0%, transparent 50%),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 80px,
+          rgba(255,255,255,0.015) 80px,
+          rgba(255,255,255,0.015) 81px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 80px,
+          rgba(255,255,255,0.015) 80px,
+          rgba(255,255,255,0.015) 81px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Kanji decorativo de fondo */
+    .bg-kanji {
+      position: fixed;
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(180px, 30vw, 400px);
+      color: rgba(255,255,255,0.022);
+      pointer-events: none;
+      z-index: 0;
+      line-height: 1;
+      user-select: none;
+    }
+    .bg-kanji-1 { top: -40px; left: -20px; }
+    .bg-kanji-2 { bottom: -60px; right: -10px; font-size: clamp(120px, 20vw, 280px); }
+
+    /* Línea roja vertical izquierda */
+    .side-line {
+      position: fixed;
+      left: 32px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--red) 20%, var(--red) 80%, transparent);
+      z-index: 1;
+      opacity: 0.6;
+    }
+    .side-line::after {
+      content: '速　力　道';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(180deg);
+      writing-mode: vertical-rl;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 8px;
+      color: var(--red);
+      opacity: 0.7;
+    }
+
+    /* Línea derecha */
+    .side-line-right {
+      position: fixed;
+      right: 32px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+      z-index: 1;
+      opacity: 0.3;
+    }
+
+    /* Layout principal */
+    .page {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 80px;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 860px;
+      text-align: center;
+      margin-bottom: 64px;
+      animation: fadeDown 1s ease both;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+
+    .header-line {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(to right, transparent, var(--gold));
+      opacity: 0.5;
+    }
+    .header-line.right {
+      background: linear-gradient(to left, transparent, var(--gold));
+    }
+
+    .sub-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 6px;
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(36px, 6vw, 72px);
+      color: var(--paper);
+      letter-spacing: 4px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .title-kanji {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(14px, 2vw, 18px);
+      color: var(--red);
+      letter-spacing: 12px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .divider-line { width: 60px; height: 1px; background: var(--ash); }
+    .divider-diamond {
+      width: 6px; height: 6px;
+      background: var(--red);
+      transform: rotate(45deg);
+    }
+
+    .tagline {
+      font-size: 15px;
+      color: var(--ash);
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    /* Grid de fotos */
+    .photo-grid {
+      width: 100%;
+      max-width: 860px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 200px 200px;
+      gap: 3px;
+      margin-bottom: 56px;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+
+    .photo-card {
+      position: relative;
+      overflow: hidden;
+      background: #0f0c08;
+      cursor: pointer;
+    }
+
+    .photo-card:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #1a1209 0%, #0d0b07 100%);
+      transition: all 0.4s ease;
+    }
+
+    .photo-card:hover .photo-placeholder {
+      background: linear-gradient(135deg, #221608 0%, #130f08 100%);
+    }
+
+    .photo-icon {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 28px;
+      color: rgba(184, 150, 62, 0.25);
+      transition: all 0.4s ease;
+    }
+
+    .photo-card:hover .photo-icon {
+      color: rgba(184, 150, 62, 0.5);
+      transform: scale(1.1);
+    }
+
+    .photo-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(245, 240, 232, 0.15);
+      text-transform: uppercase;
+    }
+
+    /* Overlay decorativo en fotos */
+    .photo-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(184, 150, 62, 0.08);
+      pointer-events: none;
+      transition: border-color 0.3s ease;
+    }
+    .photo-card:hover::after {
+      border-color: rgba(184, 150, 62, 0.25);
+    }
+
+    /* Etiqueta de número en fotos */
+    .photo-number {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      color: rgba(184, 150, 62, 0.4);
+      letter-spacing: 2px;
+    }
+
+    /* Botones de navegación */
+    .nav-buttons {
+      width: 100%;
+      max-width: 860px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+      animation: fadeUp 1s 0.5s ease both;
+    }
+
+    .nav-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 20px;
+      text-decoration: none;
+      overflow: hidden;
+      border: 1px solid rgba(192, 57, 43, 0.3);
+      background: linear-gradient(135deg, rgba(192, 57, 43, 0.06) 0%, transparent 100%);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .nav-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(192, 57, 43, 0.15) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--red);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn:hover::before { opacity: 1; }
+
+    .nav-btn-kanji {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 32px;
+      color: var(--red);
+      opacity: 0.7;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover .nav-btn-kanji {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .nav-btn-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      color: var(--paper);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-sub {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 10px;
+      color: var(--ash);
+      letter-spacing: 3px;
+    }
+
+    /* Línea decorativa en esquinas del botón */
+    .nav-btn .corner {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: var(--gold);
+      border-style: solid;
+      opacity: 0.4;
+      transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+    }
+    .nav-btn:hover .corner { opacity: 0.9; width: 18px; height: 18px; }
+    .corner.tl { top: 6px; left: 6px; border-width: 1px 0 0 1px; }
+    .corner.tr { top: 6px; right: 6px; border-width: 1px 1px 0 0; }
+    .corner.bl { bottom: 6px; left: 6px; border-width: 0 0 1px 1px; }
+    .corner.br { bottom: 6px; right: 6px; border-width: 0 1px 1px 0; }
+
+    /* Botón central de ambientación */
+    .center-btn-wrap {
+      width: 100%;
+      max-width: 860px;
+      animation: fadeUp 1s 0.65s ease both;
+    }
+
+    .center-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 22px 40px;
+      text-decoration: none;
+      overflow: hidden;
+      border: 1px solid rgba(184, 150, 62, 0.25);
+      background: linear-gradient(90deg, transparent 0%, rgba(184, 150, 62, 0.05) 50%, transparent 100%);
+      transition: all 0.4s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .center-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(184, 150, 62, 0.1) 50%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .center-btn:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .center-btn:hover::before { opacity: 1; }
+
+    .center-btn-kanji {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      color: var(--gold);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .center-btn:hover .center-btn-kanji { opacity: 1; }
+
+    .center-btn-text {
+      text-align: center;
+    }
+
+    .center-btn-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      color: var(--paper);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .center-btn-sub {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 10px;
+      color: var(--ash);
+      letter-spacing: 3px;
+    }
+
+    .center-btn .corner { border-color: var(--gold); }
+
+    /* Footer */
+    footer {
+      margin-top: 48px;
+      text-align: center;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+
+    .footer-kanji {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      color: rgba(107, 101, 96, 0.5);
+      letter-spacing: 8px;
+    }
+
+    /* Animaciones */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Partículas flotantes */
+    .sakura {
+      position: fixed;
+      top: -20px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.4; }
+      90%  { opacity: 0.2; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Kanjis decorativos de fondo -->
+  <div class="bg-kanji bg-kanji-1">疾</div>
+  <div class="bg-kanji bg-kanji-2">風</div>
+
+  <!-- Líneas laterales -->
+  <div class="side-line"></div>
+  <div class="side-line-right"></div>
+
+  <div class="page">
+
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <div class="header-line"></div>
+        <span class="sub-title">フォルツァ・ホライゾン</span>
+        <div class="header-line right"></div>
+      </div>
+
+      <span class="title-kanji">疾風 · 地平線</span>
+      <h1>FORZA HORIZON 6</h1>
+
+      <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-diamond"></div>
+        <div class="divider-line"></div>
+      </div>
+
+      <p class="tagline">速さと感動が交わる世界へ · Bienvenido al mundo del motor</p>
+    </header>
+
+    <!-- Grid de fotos -->
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <div class="photo-icon">写真</div>
+          <div class="photo-label">Imagen principal</div>
+        </div>
+        <div class="photo-number">一</div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <div class="photo-icon">車</div>
+          <div class="photo-label">Galería</div>
+        </div>
+        <div class="photo-number">二</div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <div class="photo-icon">道</div>
+          <div class="photo-label">Galería</div>
+        </div>
+        <div class="photo-number">三</div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <div class="photo-icon">速</div>
+          <div class="photo-label">Galería</div>
+        </div>
+        <div class="photo-number">四</div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <div class="photo-icon">風</div>
+          <div class="photo-label">Galería</div>
+        </div>
+        <div class="photo-number">五</div>
+      </div>
+    </div>
+
+    <!-- Botones Motos y Coches -->
+    <div class="nav-buttons">
+
+      <a class="nav-btn" href="motos.html">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+        <div class="nav-btn-kanji">単</div>
+        <div class="nav-btn-title">Motos</div>
+        <div class="nav-btn-sub">二輪の道 · Camino de dos ruedas</div>
+      </a>
+
+      <a class="nav-btn" href="coches.html">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+        <div class="nav-btn-kanji">輪</div>
+        <div class="nav-btn-title">Coches</div>
+        <div class="nav-btn-sub">四輪の力 · Fuerza de cuatro ruedas</div>
+      </a>
+
+    </div>
+
+    <!-- Botón Ambientación -->
+    <div class="center-btn-wrap">
+      <a class="center-btn" href="ambientacion.html">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+        <div class="center-btn-kanji">間</div>
+        <div class="center-btn-text">
+          <div class="center-btn-title">Ambientación</div>
+          <div class="center-btn-sub">空間と雰囲気 · Espacio y atmósfera</div>
+        </div>
+        <div class="center-btn-kanji">境</div>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-kanji">FORZA HORIZON VI · フォルツァ · ©2025</div>
+    </footer>
+
+  </div>
+
+  <!-- Partículas de sakura -->
+  <script>
+    const chars = ['·', '◇', '◆', '∘', '○'];
+    for (let i = 0; i < 12; i++) {
+      const el = document.createElement('div');
+      el.className = 'sakura';
+      el.textContent = chars[Math.floor(Math.random() * chars.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = (8 + Math.random() * 12) + 's';
+      el.style.animationDelay = (Math.random() * 10) + 's';
+      el.style.color = Math.random() > 0.5
+        ? 'rgba(192, 57, 43, 0.3)'
+        : 'rgba(184, 150, 62, 0.3)';
+      el.style.fontSize = (10 + Math.random() * 8) + 'px';
+      document.body.appendChild(el);
+    }
+  </script>
+</body>
+</html>
