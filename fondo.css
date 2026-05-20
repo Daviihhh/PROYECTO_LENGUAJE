@@ -1,17 +1,28 @@
+    /* ── VARIABLES DE COLOR ── */
+    :root {
+      --ciruela-fondo:  #150d12;
+      --papel:  #f5f0e8;
+      --rojo:   #c0392b;
+      --dorado: #b8963e;
+      --gris:   #6b6560;
+    }
+
 
     /* ── BODY: fondo oscuro, centrado ── */
     body {
+      background-attachment: fixed;
       font-family: 'Rajdhani', sans-serif;
-      background-color: var(--negro);
+      background-color: var(--ciruela-fondo);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 60px 20px;
       background-image:
-        radial-gradient(ellipse at 15% 50%, rgba(192, 57, 43, 0.15) 0%, transparent 55%), /* Los gradiantes del fondo */
-        radial-gradient(ellipse at 85% 20%, rgba(184, 150, 62, 0.06) 0%, transparent 50%),
-        repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px), /* Las lineas del fondo, se puede cambiar la opacidad si hace falta */
+        radial-gradient(ellipse at 15% 30%, rgba(180, 80, 100, 0.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 70%, rgba(180, 80, 100, 0.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(192, 57, 43, 0.08) 0%, transparent 60%),
+        repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px),
         repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.04) 81px);
     }
 
@@ -19,7 +30,7 @@
     /* Ramas fondo */
     .rama {
       position: fixed;
-      width: 420px;
+      width: 25vw;
       opacity: 0.75;
       pointer-events: none;
       z-index: 100;

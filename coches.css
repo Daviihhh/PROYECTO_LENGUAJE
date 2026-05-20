@@ -6,14 +6,6 @@
       box-sizing: border-box;
     }
 
-    /* ── VARIABLES DE COLOR ── */
-    :root {
-      --negro:  #1a1209;
-      --papel:  #f5f0e8;
-      --rojo:   #c0392b;
-      --dorado: #b8963e;
-      --gris:   #6b6560;
-    }
 
     /* ══════════════════════════════
        CABECERA
@@ -90,7 +82,7 @@
     ══════════════════════════════ */
 
     .seccion-coches {
-      max-width: 900px;
+      max-width: 75%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;

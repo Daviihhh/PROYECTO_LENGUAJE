@@ -6,15 +6,6 @@
       box-sizing: border-box;
     }
 
-    /* ── VARIABLES DE COLOR ── */
-    :root {
-      --negro:  #1a1209;
-      --papel:  #f5f0e8;
-      --rojo:   #c0392b;
-      --dorado: #b8963e;
-      --gris:   #6b6560;
-    }
-
 
     /* ══════════════════════════════
        CABECERA
@@ -81,11 +72,11 @@
       display: grid;
       /* 3 columnas iguales */
       grid-template-columns: 1fr 1fr 1fr;
-      /* 2 filas de 180px */
-      grid-template-rows: 180px 180px;
+      /* 2 filas de 250px */
+      grid-template-rows: 250px 250px;
       gap: 4px;
       width: 100%;
-      max-width: 800px;
+      max-width: 75%;
       margin-bottom: 40px;
     }
 
@@ -144,7 +135,7 @@
       display: flex;
       gap: 16px;
       width: 100%;
-      max-width: 800px;
+      max-width: 75%;
       margin-bottom: 16px;
     }
 
@@ -199,7 +190,7 @@
     /* ── Botón de ambientación (centrado, más ancho) ── */
     .btn-centro {
       width: 100%;
-      max-width: 800px;
+      max-width: 75%;
       display: flex;
       align-items: center;
       justify-content: center;
