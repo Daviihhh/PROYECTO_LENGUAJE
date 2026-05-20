@@ -85,20 +85,10 @@
   <!-- ── PIE ── -->
   <footer>FORZA HORIZON VI · フォルツァ · 2026</footer>
 
+<canvas id="bokeh-canvas"></canvas>
 
-<script> 
-  const simbolos = ['✿', '❀', '✾', '·', '°']; 
-  for (let i = 0; i < 20; i++) {
-    const p = document.createElement('div');
-    p.className = 'petalo';
-    p.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
-    p.style.left = Math.random() * 100 + 'vw';
-    p.style.animationDuration = (6 + Math.random() * 10) + 's';
-    p.style.animationDelay = (Math.random() * 8) + 's';
-    p.style.fontSize = (8 + Math.random() * 10) + 'px';
-    document.body.appendChild(p);
-  }
-</script>
+<script src="../scripts.js"></script>
+
 
   <!-- Rama de cerezo -->
    <img class="rama rama_final" src="../resources/menu/ramacerezo.png" alt="Rama de cerezo final"> 

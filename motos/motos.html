@@ -8,7 +8,7 @@
 
   
   <!-- *** Fondo *** -->
-  <link rel="stylesheet" href="fondo.css">  
+  <link rel="stylesheet" href="../fondo.css">  
   <!-- *** ESTILOS: Motos.css *** -->
   <link rel="stylesheet" href="motos.css"
   
@@ -17,7 +17,7 @@
 
   <!-- ── CABECERA ── -->
   <header>
-    <a class="volver" href="menu.html">← 戻る · Volver al menú</a>
+    <a class="volver" href="../menu/menu.html">← 戻る · Volver al menú</a>
     <p class="subtitulo-jp">二輪の道</p>
     <h1>MOTOS</h1>
     <div class="divisor">
@@ -128,19 +128,10 @@
   <footer>FORZA HORIZON VI · フォルツァ · 2026</footer>
 
 
-  <script>
-  const simbolos = ['✿', '❀', '✾', '·', '°'];
-  for (let i = 0; i < 20; i++) {
-    const p = document.createElement('div');
-    p.className = 'petalo';
-    p.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
-    p.style.left = Math.random() * 100 + 'vw';
-    p.style.animationDuration = (6 + Math.random() * 10) + 's';
-    p.style.animationDelay = (Math.random() * 8) + 's';
-    p.style.fontSize = (8 + Math.random() * 10) + 'px';
-    document.body.appendChild(p);
-  }
-</script>
+
+<canvas id="bokeh-canvas"></canvas>
+
+<script src="../scripts.js"></script>
 
 </body>
 </html>
