@@ -129,6 +129,8 @@
       object-fit: cover;
     }
 
+
+    /* estos se quitan 
     .placeholder-kanji {
       font-family: 'Noto Serif JP', serif;
       font-size: 48px;
@@ -141,6 +143,8 @@
       color: rgba(245, 240, 232, 0.15);
       text-transform: uppercase;
     }
+ 
+*/
 
     /* ── Texto del coche ── */
     .coche-info {
