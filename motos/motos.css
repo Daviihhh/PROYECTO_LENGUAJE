@@ -103,25 +103,23 @@
     }
 
     /* ── Foto de la moto ── */
-    .moto-imagen {
-      width: 100%;
-      height: 200px;
-      background-color: #0d0b07;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      /* Línea separadora sutil entre imagen e info */
-      border-bottom: 1px solid rgba(184, 150, 62, 0.1);
-    }
+  .moto-imagen {
+  position: relative;
+  width: 100%;
+  height: 300px;        /* sube un poco la altura */
+  overflow: hidden;
+  object-fit: cover;
+  display: block;
+}
 
-    /* Para imagen real: <img src="moto.jpg"> dentro de .moto-imagen */
-    .moto-imagen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.moto-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+   transform: scale(0.85);
+  object-position: center center;  /* centra la imagen */
+  display: block;
+}
 
     .placeholder-kanji {
       font-family: 'Noto Serif JP', serif;
